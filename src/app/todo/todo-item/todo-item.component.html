@@ -1,0 +1,52 @@
+<mat-card class="todo__list-item" *ngFor="let todo of todos">
+  <div class="todo__list-item__toggle">
+    <i *ngIf="!todo.completed"
+       class="material-icons"
+       matTooltip="Uncompleted Todo"
+       [matTooltipPosition]="'above'"
+       (click)="completeTodo(todo.id)"
+    >
+      radio_button_unchecked
+    </i>
+    <i *ngIf="todo.completed"
+       class="material-icons checked"
+       matTooltip="Completed Todo"
+       [matTooltipPosition]="'above'"
+       (click)="completeTodo(todo.id)"
+    >
+      check_circle
+    </i>
+  </div>
+  <div>
+    <h4 *ngIf="!todo.editable"
+        class="todo__list-item__title"
+        [ngClass]="{'completed': todo.completed}"
+    >{{ todo.title }}</h4>
+    <mat-form-field *ngIf="todo.editable" class="todo__list-item__title_edit">
+      <input matInput placeholder="Edit todo" [(ngModel)]="todo.title" [value]="todo.title">
+    </mat-form-field>
+  </div>
+
+  <div class="todo__list-item__actions">
+    <button
+      class="todo__list-item__actions_edit"
+      mat-mini-fab
+      color="primary"
+      matTooltip="{{ todo.editable ? 'Save Todo' : 'Edit todo' }}"
+      [matTooltipPosition]="'above'"
+      (click)="editTodo(todo.id)"
+    >
+      <i *ngIf="!todo.editable" class="material-icons">edit</i>
+      <i *ngIf="todo.editable" class="material-icons">save</i>
+    </button>
+    <button
+      class="todo__list-item__actions_delete"
+      mat-mini-fab color="warn"
+      matTooltip="Delete Todo"
+      [matTooltipPosition]="'above'"
+      (click)="deleteTodo(todo.id)"
+    >
+      <i class="material-icons">delete</i>
+    </button>
+  </div>
+</mat-card>

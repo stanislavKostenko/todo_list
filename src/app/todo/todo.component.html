@@ -1,3 +1,24 @@
-<p>
-  todo works!
-</p>
+<div class="todo">
+  <mat-card class="todo__form">
+    <mat-form-field class="todo__form__field">
+      <input
+        matInput
+        placeholder="Enter new todo"
+        [(ngModel)]="newTodo.title"
+        (keyup.enter)="addTodo()">
+    </mat-form-field>
+    <button
+      class="todo__form__add"
+      mat-mini-fab
+      color="primary"
+      matTooltip="Add Todo"
+      [matTooltipPosition]="'above'"
+      [disabled]="!newTodo.title"
+      (click)="addTodo()">
+      <i class="material-icons">add</i>
+    </button>
+  </mat-card>
+  <div class="todo__list">
+    <app-todo-item [todos]="todos" [newTodo]="newTodo"></app-todo-item>
+  </div>
+</div>

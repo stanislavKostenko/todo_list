@@ -1,0 +1,14 @@
+.todo {
+  max-width: 600px;
+  margin: 20px auto;
+
+  &__form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__field {
+      width: 80%;
+    }
+  }
+}

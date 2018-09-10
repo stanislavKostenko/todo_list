@@ -1,0 +1,41 @@
+.todo__list-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  &__toggle {
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.25);
+    .checked {
+      color: #03aa5c;
+    }
+  }
+
+  &__title {
+    margin-left: 30px;
+    opacity: 1;
+    -webkit-transition: opacity 0.225s;
+    -moz-transition: opacity 0.225s;
+    -ms-transition: opacity 0.225s;
+    -o-transition: opacity 0.225s;
+    transition: opacity 0.225s;
+
+
+    &.completed {
+      text-decoration: line-through;
+      opacity: 0.4;
+    }
+
+    &_edit {
+      margin-left: 30px;
+    }
+  }
+
+  &__actions {
+    margin-left: auto;
+
+    &_edit {
+      margin-right: 10px;
+    }
+  }
+}
